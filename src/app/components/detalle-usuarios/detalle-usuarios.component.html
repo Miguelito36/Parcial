@@ -1,0 +1,48 @@
+<!-- detalle-usuario.component.html -->
+<div class="container mt-4" *ngIf="user">
+    <div class="card">
+      <div class="card-header">
+        <h2>Detalles del Usuario</h2>
+      </div>
+      <div class="card-body">
+        <h3 class="card-title">{{ user.name }}</h3>
+        <p class="card-text">
+          <strong>Username:</strong> {{ user.username }}<br>
+          <strong>Email:</strong> {{ user.email }}<br>
+          <strong>Teléfono:</strong> {{ user.phone }}<br>
+          <strong>Sitio web:</strong> {{ user.website }}<br>
+          <strong>Dirección:</strong> {{ user.address.street }}, {{ user.address.suite }}, 
+          {{ user.address.city }} ({{ user.address.zipcode }})
+        </p>
+  
+        <button (click)="toggleCompanyInfo()" class="btn btn-info mb-3">
+          {{ showCompanyInfo ? 'Ocultar' : 'Mostrar' }} información de la empresa
+        </button>
+  
+        <div *ngIf="showCompanyInfo" class="company-info">
+          <h4>Empresa</h4>
+          <p>
+            <strong>Nombre:</strong> {{ user.company.name }}<br>
+            <strong>Catch Phrase:</strong> {{ user.company.catchPhrase }}<br>
+            <strong>BS:</strong> {{ user.company.bs }}
+          </p>
+        </div>
+  
+        <button (click)="loadPosts()" class="btn btn-secondary">
+          {{ showPosts ? 'Ocultar' : 'Mostrar' }} publicaciones
+        </button>
+  
+        <div *ngIf="showPosts" class="mt-3">
+          <h4>Publicaciones</h4>
+          <div *ngFor="let post of posts" class="card mb-2">
+            <div class="card-body">
+              <h5 class="card-title">{{ post.title }}</h5>
+              <p class="card-text">{{ post.body }}</p>
+            </div>
+          </div>
+        </div>
+  
+        <a routerLink="/usuarios" class="btn btn-primary mt-3">Volver al listado</a>
+      </div>
+    </div>
+  </div>
