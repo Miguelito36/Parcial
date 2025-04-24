@@ -4,8 +4,8 @@ import { ListadoUsuariosComponent } from './components/listado-usuarios/listado-
 import { DetalleUsuarioComponent } from './components/detalle-usuarios/detalle-usuarios.component';
 
 const routes: Routes = [
-  { path: 'usuarios', component: ListadoUsuariosComponent },
-  { path: 'usuario/:id', component: DetalleUsuarioComponent },
+  { path: 'users', component: ListadoUsuariosComponent },
+  { path: 'users/:id', component: DetalleUsuarioComponent },
   { path: '', redirectTo: '/usuarios', pathMatch: 'full' }
 ];
 
